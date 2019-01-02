@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>quarrierAbpMvcApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\quarrierAbpMvcApp.Domain\quarrierAbpMvcApp.Domain.csproj" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="0.10.0" />
+  </ItemGroup>
+
+</Project>

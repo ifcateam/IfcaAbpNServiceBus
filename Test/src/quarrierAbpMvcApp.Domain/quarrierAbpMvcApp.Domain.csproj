@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>quarrierAbpMvcApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Identity.Domain" Version="0.10.0" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="0.10.0" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="0.10.0" />
+    <PackageReference Include="Volo.Abp.Auditing" Version="0.10.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.DataAnnotations" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\quarrierAbpMvcApp\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestAbpEventBus\" />
+  </ItemGroup>
+
+</Project>
