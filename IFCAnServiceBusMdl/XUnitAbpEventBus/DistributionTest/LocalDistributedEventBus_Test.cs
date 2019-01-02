@@ -13,10 +13,13 @@ namespace XUnitAbpEventBus.DistributionTest
         [Fact]
         public async Task TestDistributedSubscribteHandler()
         {
-            //也可以和本地发布订阅订阅的三种方式都可以使用，这里订阅成功有两个地方：
+            //这里一般是用分布式的订阅handler方法，这里订阅成功有三个地方：
             //QuarrierTransientEventDataHandler 和 QuarriersignalEventDataHandler
             DistributedEventBus
                 .Subscribe<MySimpleEventData, QuarrierTransientEventDataHandler
+                >();
+            DistributedEventBus
+                .Subscribe<MySimpleEventData, QuarrierDistributedEventDataHandler
                 >();
 
             await DistributedEventBus.PublishAsync(new MySimpleEventData(1));
