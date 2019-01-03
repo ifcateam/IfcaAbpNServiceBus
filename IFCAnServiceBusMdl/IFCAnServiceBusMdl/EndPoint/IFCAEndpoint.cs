@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using NServiceBus;
+using Volo.Abp.DependencyInjection;
 using Volo.Abp.Threading;
 
 namespace IFCAnServiceBusMdl.EndPoint
@@ -49,9 +50,11 @@ namespace IFCAnServiceBusMdl.EndPoint
             return _endpointInstance.Publish(message, options);
         }
 
-        public Task Publish<T>(Action<T> messageConstructor, PublishOptions publishOptions)
+        public Task Publish<T>(Action<T> messageConstructor,
+            PublishOptions publishOptions)
         {
-            return _endpointInstance.Publish<T>(messageConstructor, publishOptions);
+            return _endpointInstance.Publish<T>(messageConstructor,
+                publishOptions);
         }
 
         public Task Subscribe(Type eventType, SubscribeOptions options)

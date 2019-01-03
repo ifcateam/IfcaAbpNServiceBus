@@ -10,7 +10,17 @@ namespace ReservationClient
     [DependsOn(typeof(IFCAnServiceBusModule))]
     public class ReservationClientModule : AbpModule
     {
-        public override void OnApplicationInitialization(ApplicationInitializationContext context)
+        public override void ConfigureServices(
+            ServiceConfigurationContext context)
+        {
+            Configure<IFCAnServiceBusOptions>(options =>
+            {
+                options.CurrentServiceName = "ReservationClient";
+            });
+        }
+
+        public override void OnApplicationInitialization(
+            ApplicationInitializationContext context)
         {
             context.UseNServiceBus();
         }

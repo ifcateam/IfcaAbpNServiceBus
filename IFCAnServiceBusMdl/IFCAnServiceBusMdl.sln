@@ -19,17 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestCase", "TestCase", "{42
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitAbpEventBus", "XUnitAbpEventBus\XUnitAbpEventBus.csproj", "{9F320F46-4A40-4F07-AA0A-397A686EF67E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestNServiceBus", "XUnitTestNServiceBus\XUnitTestNServiceBus.csproj", "{1F106FB7-D6C1-49EF-9514-C5F5B687C77E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestNServiceBus", "XUnitTestNServiceBus\XUnitTestNServiceBus.csproj", "{1F106FB7-D6C1-49EF-9514-C5F5B687C77E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderClient", "OrderClient\OrderClient.csproj", "{EB1B449B-D91F-4780-A531-C0E67A0A0F16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderClient", "OrderClient\OrderClient.csproj", "{EB1B449B-D91F-4780-A531-C0E67A0A0F16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestDatas", "TestDatas", "{F9FB096B-6CD9-4698-9CAE-481735619CBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusTestDatas", "ServiceBusTestDatas\ServiceBusTestDatas.csproj", "{EF67DF3E-5D43-4BA8-8C54-EC7093C00700}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceBusTestDatas", "ServiceBusTestDatas\ServiceBusTestDatas.csproj", "{EF67DF3E-5D43-4BA8-8C54-EC7093C00700}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Saga", "Saga", "{3A5B692B-AEEF-4ED8-B689-BE4E2C5469C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationClient", "ReservationClient\ReservationClient.csproj", "{08C8AB24-7406-4572-89B9-F56A72F99CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationClient", "ReservationClient\ReservationClient.csproj", "{08C8AB24-7406-4572-89B9-F56A72F99CD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
