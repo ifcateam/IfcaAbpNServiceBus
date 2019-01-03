@@ -13,6 +13,7 @@ namespace OrderClient
         public Task Handle(PlaceOrderCmd message, IMessageHandlerContext context)
         {
             Debug.Print("收到命令 下单");
+            Console.WriteLine("收到命令 下单");
             return context.Publish(new OrderCreateEventData()
                 {Name = "quarrier", OrderId = message.OrderId});
         }
