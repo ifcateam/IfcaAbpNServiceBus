@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EventCmdAllData;
 using NServiceBus;
+using NServiceBus.Sagas;
 
 namespace SagaService.Subscription
 {
@@ -12,6 +13,8 @@ namespace SagaService.Subscription
         IHandleMessages<SeatsReservedEventData>,
         IHandleMessages<PaymentAcceptedEventData>,
         IHandleMessages<SeatsNotReservationEventData>
+//        IHandleTimeouts<>,
+//        IHandleSagaNotFound<> 幂等性怎么处理
 
 
     {

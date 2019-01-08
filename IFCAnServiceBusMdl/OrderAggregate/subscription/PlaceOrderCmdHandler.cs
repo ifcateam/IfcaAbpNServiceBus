@@ -4,10 +4,11 @@ using System.Text;
 using System.Threading.Tasks;
 using EventCmdAllData;
 using NServiceBus;
+using Volo.Abp.DependencyInjection;
 
 namespace OrderAggregate.subscription
 {
-    public class PlaceOrderCmdHandler : IHandleMessages<PlaceOrderCmd>
+    public class PlaceOrderCmdHandler : IHandleMessages<PlaceOrderCmd>,ITransientDependency
     {
         public Task Handle(PlaceOrderCmd message, IMessageHandlerContext context)
         {
