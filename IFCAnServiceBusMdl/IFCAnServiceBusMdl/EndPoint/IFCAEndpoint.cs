@@ -22,6 +22,10 @@ namespace IFCAnServiceBusMdl.EndPoint
                 new EndpointConfiguration(_ifcAnServiceBusOptions
                     .CurrentServiceName);
 
+            endpointConfiguration.UseContainer<AutofacBuilder>(customizations:c =>
+            {
+                c.ExistingLifetimeScope(_ifcAnServiceBusOptions.Container);
+            });
             var transport =
                 endpointConfiguration.UseTransport<LearningTransport>();
 

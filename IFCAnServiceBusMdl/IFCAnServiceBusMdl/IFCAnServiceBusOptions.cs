@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Autofac;
 
 namespace IFCAnServiceBusMdl
 {
@@ -9,9 +10,11 @@ namespace IFCAnServiceBusMdl
         public IFCAnServiceBusOptions()
         {
             CurrentServiceName = "DefaultClient";
+           
         }
 
         public string CurrentServiceName { get; set; }
+        public IContainer Container { get; set; }
 
     }
 }
