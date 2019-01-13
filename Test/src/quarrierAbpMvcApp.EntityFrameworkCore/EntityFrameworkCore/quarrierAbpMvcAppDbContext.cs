@@ -28,5 +28,7 @@ namespace quarrierAbpMvcApp.EntityFrameworkCore
             modelBuilder.ConfigureBackgroundJobs();
             modelBuilder.ConfigureAuditLogging();
         }
+
+       
     }
 }
