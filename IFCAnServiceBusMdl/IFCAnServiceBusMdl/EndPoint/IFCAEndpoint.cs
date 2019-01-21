@@ -33,7 +33,7 @@ namespace IFCAnServiceBusMdl.EndPoint
                     });
             }
 
-
+            endpointConfiguration.UsePersistence<LearningPersistence>();
             var transport =
                 endpointConfiguration.UseTransport<LearningTransport>();
 
