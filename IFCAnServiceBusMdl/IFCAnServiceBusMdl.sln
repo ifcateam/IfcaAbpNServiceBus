@@ -7,14 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFCAnServiceBusMdl", "IFCAn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{199A53F2-6368-4FA8-8F08-BD4A5BE10E23}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quarrierAbpMvcApp.Application", "..\Test\src\quarrierAbpMvcApp.Application\quarrierAbpMvcApp.Application.csproj", "{8E0F50A8-70AE-43CD-AED9-906205A018DA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quarrierAbpMvcApp.Domain", "..\Test\src\quarrierAbpMvcApp.Domain\quarrierAbpMvcApp.Domain.csproj", "{90DE8CC1-4DBB-4FEA-95E6-662CEAD445E5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quarrierAbpMvcApp.EntityFrameworkCore", "..\Test\src\quarrierAbpMvcApp.EntityFrameworkCore\quarrierAbpMvcApp.EntityFrameworkCore.csproj", "{25E440CE-2D24-4990-B390-EAC590D97B68}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quarrierAbpMvcApp.Web", "..\Test\src\quarrierAbpMvcApp.Web\quarrierAbpMvcApp.Web.csproj", "{3416A5A3-4CB9-4C52-9F34-F8B4AFE34673}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConsoleClient", "TestConsoleClient", "{42053BE3-A659-4519-B5D1-E57AC3CAFE00}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitAbpEventBus", "XUnitAbpEventBus\XUnitAbpEventBus.csproj", "{9F320F46-4A40-4F07-AA0A-397A686EF67E}"
@@ -59,15 +51,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestDatas", "TestDatas", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayForMeterEventData", "TestDatas\PayForMeterEventData.csproj", "{C70D5990-F936-4546-BB99-1B98BCEB2BB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentDomain", "PaymentDomain\PaymentDomain.csproj", "{AFAB12D5-4EF8-4E9A-8E74-E36568CFD572}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentDomain", "PaymentDomain\PaymentDomain.csproj", "{AFAB12D5-4EF8-4E9A-8E74-E36568CFD572}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentInfrastructure", "PaymentInfrastructure\PaymentInfrastructure.csproj", "{70F4C9C0-6361-4D6F-91DF-31A3D46DC413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentInfrastructure", "PaymentInfrastructure\PaymentInfrastructure.csproj", "{70F4C9C0-6361-4D6F-91DF-31A3D46DC413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentForMeterEFCoreTest", "PaymentForMeterEFCoreTest\PaymentForMeterEFCoreTest.csproj", "{4DB25CD3-7CFA-4DBF-A4EE-1F5334AD16DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentForMeterEFCoreTest", "PaymentForMeterEFCoreTest\PaymentForMeterEFCoreTest.csproj", "{4DB25CD3-7CFA-4DBF-A4EE-1F5334AD16DC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Saga", "Saga", "{9C137CBB-B2AE-426F-B4BE-F39C6FE2F2DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagasMdl", "SagasMdl\SagasMdl.csproj", "{5250F861-743A-4C34-955F-3683E3271B1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SagasMdl", "SagasMdl\SagasMdl.csproj", "{5250F861-743A-4C34-955F-3683E3271B1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,22 +71,6 @@ Global
 		{82A51A3C-8FF6-492B-969F-7EB8B4A0248B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82A51A3C-8FF6-492B-969F-7EB8B4A0248B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82A51A3C-8FF6-492B-969F-7EB8B4A0248B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E0F50A8-70AE-43CD-AED9-906205A018DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E0F50A8-70AE-43CD-AED9-906205A018DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E0F50A8-70AE-43CD-AED9-906205A018DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E0F50A8-70AE-43CD-AED9-906205A018DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90DE8CC1-4DBB-4FEA-95E6-662CEAD445E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90DE8CC1-4DBB-4FEA-95E6-662CEAD445E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90DE8CC1-4DBB-4FEA-95E6-662CEAD445E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90DE8CC1-4DBB-4FEA-95E6-662CEAD445E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25E440CE-2D24-4990-B390-EAC590D97B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25E440CE-2D24-4990-B390-EAC590D97B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25E440CE-2D24-4990-B390-EAC590D97B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25E440CE-2D24-4990-B390-EAC590D97B68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3416A5A3-4CB9-4C52-9F34-F8B4AFE34673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3416A5A3-4CB9-4C52-9F34-F8B4AFE34673}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3416A5A3-4CB9-4C52-9F34-F8B4AFE34673}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3416A5A3-4CB9-4C52-9F34-F8B4AFE34673}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F320F46-4A40-4F07-AA0A-397A686EF67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F320F46-4A40-4F07-AA0A-397A686EF67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F320F46-4A40-4F07-AA0A-397A686EF67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -176,10 +152,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8E0F50A8-70AE-43CD-AED9-906205A018DA} = {199A53F2-6368-4FA8-8F08-BD4A5BE10E23}
-		{90DE8CC1-4DBB-4FEA-95E6-662CEAD445E5} = {199A53F2-6368-4FA8-8F08-BD4A5BE10E23}
-		{25E440CE-2D24-4990-B390-EAC590D97B68} = {199A53F2-6368-4FA8-8F08-BD4A5BE10E23}
-		{3416A5A3-4CB9-4C52-9F34-F8B4AFE34673} = {199A53F2-6368-4FA8-8F08-BD4A5BE10E23}
 		{42053BE3-A659-4519-B5D1-E57AC3CAFE00} = {199A53F2-6368-4FA8-8F08-BD4A5BE10E23}
 		{9F320F46-4A40-4F07-AA0A-397A686EF67E} = {42053BE3-A659-4519-B5D1-E57AC3CAFE00}
 		{1F106FB7-D6C1-49EF-9514-C5F5B687C77E} = {42053BE3-A659-4519-B5D1-E57AC3CAFE00}
