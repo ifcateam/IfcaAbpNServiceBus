@@ -10,13 +10,16 @@ using NServiceBus;
 using NServiceBusTestBase;
 using PayForMeterEventData.Meter;
 using PayForMeterEventData.SagaEvent;
+using Shouldly;
 using Xunit;
+using Xunit.Sdk;
 
 namespace TestNServiceBus_Saga
 {
     public class MeterClient : NServiceBusTestBase<TestNServiceBus_SagaModule>
     {
         public static AutoResetEvent ThreadEvent;
+        public static AutoResetEvent ThreadEventFailed;
 
         private readonly IIFCAEndpoint _ifcaEndpoint;
 
@@ -30,6 +33,7 @@ namespace TestNServiceBus_Saga
 
         /// <summary>
         /// 单元测试计费，并事件驱动，saga到付款的过程
+        /// 【成功过程】
         /// </summary>
         [Fact]
         public void Test_MeterCalculateAmount()
@@ -45,13 +49,27 @@ namespace TestNServiceBus_Saga
             _ifcaEndpoint.Publish(eventdata).ConfigureAwait(false);
 
 
-            ThreadEvent.WaitOne();
+            var b = ThreadEvent.WaitOne(8000);
+            b.ShouldBeTrue();
             Debug.Print("complete All");
+
+        }
+
+        /// <summary>
+        /// 失败事务测试
+        /// </summary>
+        public void Test_MeterFaild()
+        {
+            ThreadEventFailed = new AutoResetEvent(false);
+            var b = ThreadEventFailed.WaitOne(8000);
+            b.ShouldBeTrue();
+            Debug.Print("failed测试完成");
 
         }
     }
 
-    public class MeterClientAutoRestEvent : IHandleMessages<SuccessConfirmEventData>,
+    public class MeterClientAutoRestEvent :
+        IHandleMessages<SuccessConfirmEventData>,
         IHandleMessages<FaultEventData>
     {
         /// <summary>
@@ -60,22 +78,26 @@ namespace TestNServiceBus_Saga
         /// <param name="message"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public Task Handle(SuccessConfirmEventData message, IMessageHandlerContext context)
+        public Task Handle(SuccessConfirmEventData message,
+            IMessageHandlerContext context)
         {
             MeterClient.ThreadEvent.Set();
-
+            message.ShouldNotBe(null);
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// 6.meter客户端 收到付款不成功
         /// </summary>
         /// <param name="message"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public Task Handle(FaultEventData message, IMessageHandlerContext context)
+        public Task Handle(FaultEventData message,
+            IMessageHandlerContext context)
         {
-            MeterClient.ThreadEvent.Set();
+            MeterClient.ThreadEventFailed.Set();
 
+            message.ShouldNotBe(null);
             return Task.CompletedTask;
         }
     }

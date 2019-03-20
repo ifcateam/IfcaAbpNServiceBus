@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using EventCmdAllData;
@@ -13,8 +14,8 @@ namespace SagaService.Subscription
         IHandleMessages<SeatsReservedEventData>,
         IHandleMessages<PaymentAcceptedEventData>,
         IHandleMessages<SeatsNotReservationEventData>
-//        IHandleTimeouts<>,
-//        IHandleSagaNotFound<> 幂等性怎么处理
+        ,IHandleTimeouts<TimeOutEventData>
+
 
 
     {
@@ -22,6 +23,12 @@ namespace SagaService.Subscription
             SagaPropertyMapper<OrderSagaData> mapper)
         {
             mapper.ConfigureMapping<OrderCreateEventData>(e => e.OrderId)
+                .ToSaga(sagadata => sagadata.OrderId);
+            mapper.ConfigureMapping<SeatsReservedEventData>(e => e.OrderId)
+                .ToSaga(sagadata => sagadata.OrderId);
+            mapper.ConfigureMapping<PaymentAcceptedEventData>(e => e.OrderId)
+                .ToSaga(sagadata => sagadata.OrderId);
+            mapper.ConfigureMapping<SeatsNotReservationEventData>(e => e.OrderId)
                 .ToSaga(sagadata => sagadata.OrderId);
         }
 
@@ -33,9 +40,24 @@ namespace SagaService.Subscription
             {
                 OrderId = message.OrderId
             };
+
+            var eventTest = new OrderConfirmedEventData()
+            {
+                OrderId = message.OrderId
+            };
             Console.WriteLine("saga订阅到OrderCreate事件");
             Console.WriteLine("3.MakeReservation命令发出");
-            context.Send("ReserveClient", cmd).ConfigureAwait(false);
+
+            var sendOptions = new SendOptions();
+            sendOptions.DelayDeliveryWith(TimeSpan.FromSeconds(0));
+            sendOptions.SetDestination("ReserveClient");
+
+//            context.Publish(eventTest).ConfigureAwait(false);
+            context.Send(cmd, sendOptions).ConfigureAwait(false);
+            var timeout = DateTime.UtcNow.AddSeconds(3);
+            RequestTimeout<TimeOutEventData>(context, timeout)
+            .ConfigureAwait(false);
+            //            context.Send("ReserveClient", cmd).ConfigureAwait(false);
             return ProcessOrderComplete(context);
         }
 
@@ -92,6 +114,12 @@ namespace SagaService.Subscription
 //            如果这里要求取消了，就不做后面订单了，必须完成saga
             MarkAsComplete();
             return context.Send("waitListClient", cmd);
+        }
+
+        public Task Timeout(TimeOutEventData state, IMessageHandlerContext context)
+        {
+            Debug.Print("timeout");
+            return Task.CompletedTask;
         }
     }
 }

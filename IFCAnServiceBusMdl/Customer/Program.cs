@@ -32,7 +32,7 @@ namespace Customer
                 var cmd = new PlaceOrderCmd()
                 {
                     Descript = "Customer 发出的命令",
-                    OrderID = "order001"
+                    OrderID = "order003"
 
                 };
                 AsyncHelper.RunSync(() =>

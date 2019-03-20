@@ -9,7 +9,7 @@ using Volo.Abp.Threading;
 
 namespace IFCAnServiceBusMdl.EndPoint
 {
-    public class IFCAEndpoint : IIFCAEndpoint
+    public class IFCAEndpoint : IIFCAEndpoint, IDisposable
     {
         private readonly IEndpointInstance _endpointInstance;
         private readonly IFCAnServiceBusOptions _ifcAnServiceBusOptions;
@@ -82,6 +82,27 @@ namespace IFCAnServiceBusMdl.EndPoint
         public Task Stop()
         {
             return _endpointInstance.Stop();
+        }
+
+        ~IFCAEndpoint()
+        {
+            Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing)
+            {
+                return;
+            }
+
+            Stop();
+
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
         }
     }
 }

@@ -1,0 +1,17 @@
+{
+  "NServiceBus.MessageId": "95a7fdea-3ead-49b4-9b8f-a9ff002c6d16",
+  "NServiceBus.MessageIntent": "Publish",
+  "NServiceBus.RelatedTo": "425248be-3f18-4d46-9784-a9ff002c6017",
+  "NServiceBus.ConversationId": "885f57b6-97f8-42f6-900c-a9ff002c6017",
+  "NServiceBus.CorrelationId": "425248be-3f18-4d46-9784-a9ff002c6017",
+  "NServiceBus.OriginatingMachine": "Yct201811122133",
+  "NServiceBus.OriginatingEndpoint": "PayForMeterSagas",
+  "$.diagnostics.originating.hostid": "e1221caa804d3de28dc00275f652b5b7",
+  "NServiceBus.OriginatingSagaId": "eac40f72-9ef6-ff27-4b29-9b3785b230a1",
+  "NServiceBus.OriginatingSagaType": "SagasMdl.Modles.PayForMeterSaga, SagasMdl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.ReplyToAddress": "PayForMeterSagas",
+  "NServiceBus.ContentType": "text\/xml",
+  "NServiceBus.EnclosedMessageTypes": "PayForMeterEventData.SagaEvent.SuccessConfirmEventData, PayForMeterEventData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.Version": "7.1.6",
+  "NServiceBus.TimeSent": "2019-02-25 02:41:45:033030 Z"
+}

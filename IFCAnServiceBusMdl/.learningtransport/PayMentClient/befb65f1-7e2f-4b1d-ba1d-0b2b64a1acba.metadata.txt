@@ -1,0 +1,17 @@
+{
+  "NServiceBus.MessageId": "4185921e-03b3-4420-959b-aa05006b08a4",
+  "NServiceBus.MessageIntent": "Send",
+  "NServiceBus.RelatedTo": "e6eb31a9-79db-4fd6-9de9-aa05006a86e1",
+  "NServiceBus.ConversationId": "c4d15e08-bdc9-472b-a0ed-aa05006a8263",
+  "NServiceBus.CorrelationId": "bae684c5-fe78-4a58-bd1a-aa05006a8260",
+  "NServiceBus.OriginatingMachine": "Yct201811122133",
+  "NServiceBus.OriginatingEndpoint": "SagaService",
+  "$.diagnostics.originating.hostid": "1fa828e11888d0ca9f9c9c07d476c99d",
+  "NServiceBus.OriginatingSagaId": "5e60bd33-7576-d6ba-5c91-dd69c19f373f",
+  "NServiceBus.OriginatingSagaType": "SagaService.Subscription.SagaOrderProcessManager, SagaService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.ReplyToAddress": "SagaService",
+  "NServiceBus.ContentType": "text\/xml",
+  "NServiceBus.EnclosedMessageTypes": "EventCmdAllData.MakePeymentCmd, EventCmdAllData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.Version": "7.1.6",
+  "NServiceBus.TimeSent": "2019-03-03 06:29:41:919459 Z"
+}

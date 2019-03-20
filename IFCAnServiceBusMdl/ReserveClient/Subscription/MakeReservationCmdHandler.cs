@@ -33,7 +33,8 @@ namespace ReserveClient.Subscription
                 };
                 return context.Publish(eventDataNotEnough);
             }
-
+//            return Task.CompletedTask;
+//            return context.Reply(message);
             return context.Publish(v);
         }
     }

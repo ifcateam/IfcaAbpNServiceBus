@@ -1,0 +1,20 @@
+{
+  "NServiceBus.SagaId": "5e60bd33-7576-d6ba-5c91-dd69c19f373f",
+  "NServiceBus.IsSagaTimeoutMessage": "True",
+  "NServiceBus.SagaType": "SagaService.Subscription.SagaOrderProcessManager, SagaService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.MessageId": "b207aa00-0f3a-416d-9fa3-aa05006dba50",
+  "NServiceBus.MessageIntent": "Send",
+  "NServiceBus.RelatedTo": "8e7fe7b2-38f4-4aa8-8948-aa05006db368",
+  "NServiceBus.ConversationId": "c8c2e422-e9aa-48ba-8055-aa05006db341",
+  "NServiceBus.CorrelationId": "5b554fdc-eeb7-4b71-8d7d-aa05006db33f",
+  "NServiceBus.OriginatingMachine": "Yct201811122133",
+  "NServiceBus.OriginatingEndpoint": "SagaService",
+  "$.diagnostics.originating.hostid": "1fa828e11888d0ca9f9c9c07d476c99d",
+  "NServiceBus.OriginatingSagaId": "5e60bd33-7576-d6ba-5c91-dd69c19f373f",
+  "NServiceBus.OriginatingSagaType": "SagaService.Subscription.SagaOrderProcessManager, SagaService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.ReplyToAddress": "SagaService",
+  "NServiceBus.ContentType": "text\/xml",
+  "NServiceBus.EnclosedMessageTypes": "EventCmdAllData.TimeOutEventData, EventCmdAllData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.Version": "7.1.6",
+  "NServiceBus.TimeSent": "2019-03-03 06:39:30:398174 Z"
+}

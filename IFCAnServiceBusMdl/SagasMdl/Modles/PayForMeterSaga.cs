@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using NServiceBus;
@@ -12,7 +13,8 @@ namespace SagasMdl.Modles
     public class PayForMeterSaga : Saga<PayForMeterSagaData>,
         IAmStartedByMessages<ChargeEventData>,
         IHandleMessages<PaymentConfirmEventData>,
-        IHandleMessages<PaymentCancelEventData>
+        IHandleMessages<PaymentCancelEventData>,
+        IHandleTimeouts<TimeOutEventData>
 
     {
         /// <summary>
@@ -43,8 +45,11 @@ namespace SagasMdl.Modles
                 SourceContent = message.SourceContent,
                 SourceTypeElementCode = message.SourceTypeElementCode
             };
-            return context.SendLocal(cmd);
+            context.SendLocal(cmd).ConfigureAwait(false);
+            return RequestTimeout<TimeOutEventData>(context,
+                DateTime.Now.AddSeconds(3));
         }
+
         /// <summary>
         /// 3.付款成功确定
         /// </summary>
@@ -114,6 +119,13 @@ namespace SagasMdl.Modles
 
                 MarkAsComplete();
             }
+        }
+
+        public Task Timeout(TimeOutEventData state, IMessageHandlerContext context)
+        {
+            Debug.Print("超时");
+
+            return Task.CompletedTask;
         }
     }
 }

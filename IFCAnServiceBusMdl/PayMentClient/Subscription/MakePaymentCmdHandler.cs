@@ -19,6 +19,8 @@ namespace PayMentClient.Subscription
                 PayAmount = "100",
                 PayMentId = "Pay001"
             };
+//            return Task.CompletedTask;
+//            return context.Reply(vEventData);
             return context.Publish(vEventData);
         }
     }
