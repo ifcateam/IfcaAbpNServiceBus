@@ -17,7 +17,7 @@ namespace UsersDomain
 
         public void TodoAddTestEvent()
         {
-            AddLocalEvent(new AddUserEventData() {DataValue = "opq"});
+            AddDistributedEvent(new AddUserEventData() {DataValue = "opq"});
         }
 
     }

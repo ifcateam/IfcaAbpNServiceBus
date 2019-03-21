@@ -23,6 +23,19 @@ namespace AggregateEventTests
         {
             context.UseNServiceBus();
         }
+
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            
+            Configure<IFCAnServiceBusOptions>(op =>
+                {
+                    op.CurrentServiceName = "AggregateTest";
+                    op.TestorProduct = ENUM_SERVICBUS_TESTORPRODUCT.Test;
+                    op.LocaLorDistribution = ENUM_LOCALorDISTRIBUTION.Local;
+                    op.TransportType = ENUM_TRANSPORT.Rabbitmq;
+
+                });
+        }
     }
 
 

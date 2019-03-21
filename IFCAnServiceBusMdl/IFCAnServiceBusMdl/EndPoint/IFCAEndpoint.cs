@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using IFCAnServiceBusMdl.OptionsHelper;
 using Microsoft.Extensions.Options;
 using NServiceBus;
 using Volo.Abp.DependencyInjection;
@@ -23,26 +24,10 @@ namespace IFCAnServiceBusMdl.EndPoint
                 new EndpointConfiguration(_ifcAnServiceBusOptions
                     .CurrentServiceName);
 
+            var initOptions = new BasicInitOptions(endpointConfiguration);
+            initOptions.Handle(_ifcAnServiceBusOptions);
 
-            if (_ifcAnServiceBusOptions.Container != null)
-            {
-                endpointConfiguration.UseContainer<AutofacBuilder>(
-                    customizations: c =>
-                    {
-                        c.ExistingLifetimeScope(
-                            _ifcAnServiceBusOptions.Container);
-                    });
-            }
-
-            endpointConfiguration.UsePersistence<LearningPersistence>();
-            var transport =
-                endpointConfiguration.UseTransport<LearningTransport>();
-            var vp = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                "\\TempQua");
-            transport.StorageDirectory(vp);
-//            var routing = transport.Routing();
-//            routing.RouteToEndpoint(typeof(PlaceOrder), "Sales");
-
+            
             var endpointInstance =
                 AsyncHelper.RunSync(() => Endpoint.Start(endpointConfiguration));
 
