@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -36,7 +37,9 @@ namespace IFCAnServiceBusMdl.EndPoint
             endpointConfiguration.UsePersistence<LearningPersistence>();
             var transport =
                 endpointConfiguration.UseTransport<LearningTransport>();
-
+            var vp = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                "\\TempQua");
+            transport.StorageDirectory(vp);
 //            var routing = transport.Routing();
 //            routing.RouteToEndpoint(typeof(PlaceOrder), "Sales");
 
