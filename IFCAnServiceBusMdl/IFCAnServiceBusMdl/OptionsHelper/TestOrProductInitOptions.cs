@@ -21,8 +21,7 @@ namespace IFCAnServiceBusMdl.OptionsHelper
             #region Persistence
             if (ifcAnServiceBusOptions.TestorProduct ==
                 ENUM_SERVICBUS_TESTORPRODUCT.Test)
-            {
-                _endpointConfiguration.EnableInstallers();
+            {                
                 _endpointConfiguration.UsePersistence<LearningPersistence>();
             }
             #endregion

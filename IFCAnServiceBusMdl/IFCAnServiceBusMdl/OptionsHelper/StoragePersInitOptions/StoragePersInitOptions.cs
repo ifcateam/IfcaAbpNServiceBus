@@ -21,7 +21,8 @@ namespace IFCAnServiceBusMdl.OptionsHelper.StoragePersInitOptions
         {
             var sqlPersistence =
                 _endpointConfiguration.UsePersistence<SqlPersistence>();
-
+            sqlPersistence.DisableInstaller();
+            
             SqlInit(sqlPersistence, ifcAnServiceBusOptions);
 
             var subscriptions = sqlPersistence.SubscriptionSettings();
@@ -29,6 +30,7 @@ namespace IFCAnServiceBusMdl.OptionsHelper.StoragePersInitOptions
 
             FactoryCreateNextSucceesorTransport(ifcAnServiceBusOptions
                 .TransportType);
+            _succeesorNext.Handle(ifcAnServiceBusOptions);
         }
 
         private void FactoryCreateNextSucceesorTransport(

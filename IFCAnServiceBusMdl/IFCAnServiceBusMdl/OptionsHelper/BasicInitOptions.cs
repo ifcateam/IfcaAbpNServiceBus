@@ -24,7 +24,7 @@ namespace IFCAnServiceBusMdl.OptionsHelper
                             ifcAnServiceBusOptions.Container);
                     });
             }    
-            
+            _endpointConfiguration.EnableInstallers();
             SetSucceesorNext(new TestOrProductInitOptions(_endpointConfiguration));
             _succeesorNext.Handle(ifcAnServiceBusOptions);
         }
