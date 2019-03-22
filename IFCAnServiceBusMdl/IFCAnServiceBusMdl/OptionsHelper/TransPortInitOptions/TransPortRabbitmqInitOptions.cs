@@ -11,7 +11,8 @@ namespace IFCAnServiceBusMdl.OptionsHelper.TransPortInitOptions
         }
 
 
-        protected override void TransPortInit(IFCAnServiceBusOptions ifcAnServiceBusOptions)
+        protected override void TransPortInit(
+            IFCAnServiceBusOptions ifcAnServiceBusOptions)
         {
             _endpointConfiguration
                 .UsePersistence<InMemoryPersistence, StorageType.Subscriptions
@@ -20,9 +21,8 @@ namespace IFCAnServiceBusMdl.OptionsHelper.TransPortInitOptions
             var transport = _endpointConfiguration
                 .UseTransport<RabbitMQTransport>();
 
-            transport.ConnectionString("host=192.168.137.51;" +
-                                       "username=admin;" +
-                                       "password=admin");
+            transport.ConnectionString(ifcAnServiceBusOptions
+                .OptionPropertyForTransPort.Connections);
             transport.UseConventionalRoutingTopology();
         }
     }

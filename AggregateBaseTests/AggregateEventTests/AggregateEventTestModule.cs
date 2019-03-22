@@ -26,15 +26,21 @@ namespace AggregateEventTests
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            
-            Configure<IFCAnServiceBusOptions>(op =>
-                {
-                    op.CurrentServiceName = "AggregateTest";
-                    op.TestorProduct = ENUM_SERVICBUS_TESTORPRODUCT.Test;
-                    op.StoragePersistence = ENUM_StoragePersistence.Mysql;
-                    op.TransportType = ENUM_TRANSPORT.Rabbitmq;
 
-                });
+            Configure<IFCAnServiceBusOptions>(op =>
+            {
+                op.CurrentServiceName = "AggregateTest";
+                op.TestorProduct = ENUM_SERVICBUS_TESTORPRODUCT.Test;
+                var per =
+                    op.UsePersistenceSetting(ENUM_StoragePersistence.Mysql);
+                per.Connections =
+                    $"server=192.168.137.51;user=root;database=new_schema_Test;port=3306;password=123456;AllowUserVariables=True;AutoEnlist=false";
+                var tp = op.UseTransportSetting(ENUM_TRANSPORT.Rabbitmq);
+                tp.Connections = "host = 192.168.137.51; " +
+                                 "username=admin;" +
+                                 "password=admin";
+
+            });
         }
     }
 
