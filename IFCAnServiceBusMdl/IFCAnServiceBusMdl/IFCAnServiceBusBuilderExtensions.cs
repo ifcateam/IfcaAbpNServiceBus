@@ -20,6 +20,7 @@ namespace IFCAnServiceBusMdl
             this ApplicationInitializationContext context)
         {
             var endpoit = context.ServiceProvider.GetService<IIFCAEndpoint>();
+            endpoit.InitInstance().ConfigureAwait(false);
             return endpoit;
         }
         

@@ -7,7 +7,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace IFCAnServiceBusMdl.EndPoint
 {
-    public interface IIFCAEndpoint : IMessageSession,ISingletonDependency
+    public interface IIFCAEndpoint : IMessageSession, ISingletonDependency
     {
 //        /// <summary>Sends the provided message.</summary>
 //        /// <param name="message">The message to send.</param>
@@ -48,5 +48,6 @@ namespace IFCAnServiceBusMdl.EndPoint
 //
 //        /// <summary>Stops the endpoint.</summary>
 //        Task Stop();
+        Task InitInstance();
     }
 }

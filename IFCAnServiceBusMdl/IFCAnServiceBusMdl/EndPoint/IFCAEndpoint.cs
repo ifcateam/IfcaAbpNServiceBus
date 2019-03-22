@@ -13,7 +13,8 @@ namespace IFCAnServiceBusMdl.EndPoint
 {
     public class IFCAEndpoint : IIFCAEndpoint, IDisposable
     {
-        private readonly IEndpointInstance _endpointInstance;
+        private IEndpointInstance _endpointInstance;
+        private readonly EndpointConfiguration _endpointConfiguration;
         private readonly IFCAnServiceBusOptions _ifcAnServiceBusOptions;
 
         public IFCAEndpoint(IOptions<IFCAnServiceBusOptions> options)
@@ -27,11 +28,8 @@ namespace IFCAnServiceBusMdl.EndPoint
             var initOptions = new BasicInitOptions(endpointConfiguration);
             initOptions.Handle(_ifcAnServiceBusOptions);
 
-            
-            var endpointInstance =
-                AsyncHelper.RunSync(() => Endpoint.Start(endpointConfiguration));
-
-            _endpointInstance = endpointInstance;
+            _endpointConfiguration = endpointConfiguration;
+            _endpointInstance = null;
 
         }
 
@@ -67,9 +65,22 @@ namespace IFCAnServiceBusMdl.EndPoint
             return _endpointInstance.Unsubscribe(eventType, options);
         }
 
+        public async Task InitInstance()
+        {
+            if (_endpointInstance == null)
+            {
+                _endpointInstance = await Endpoint.Start(_endpointConfiguration);
+            }
+
+        }
+
         public Task Stop()
         {
-            return _endpointInstance.Stop();
+            if (_endpointInstance != null)
+            {
+                return _endpointInstance.Stop();
+            }            
+            return Task.CompletedTask;
         }
 
         ~IFCAEndpoint()
