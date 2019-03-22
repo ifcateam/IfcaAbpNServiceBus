@@ -11,15 +11,17 @@ namespace IFCAnServiceBusMdl
         Product
     }
 
-    public enum ENUM_LOCALorDISTRIBUTION
+    public enum ENUM_StoragePersistence
     {
-        Local = 0,
-        Distribution
+        Mysql = 0,
+        Sqlserver
+//        mongodb
     }
 
     public enum ENUM_TRANSPORT
     {
-        Rabbitmq =0 ,
+        LocalOutbox = 0,
+        Rabbitmq,
         AzureServiceBus
     }
     public class IFCAnServiceBusOptions
@@ -40,7 +42,7 @@ namespace IFCAnServiceBusMdl
         /// <summary>
         /// 前提是生产环境，本地是outbox，分布式rabbitmq或者Azure ServiceBus选择
         /// </summary>
-        public ENUM_LOCALorDISTRIBUTION LocaLorDistribution { get; set; }
+        public ENUM_StoragePersistence StoragePersistence { get; set; }
 
         /// <summary>
         /// 分布式前提选择 消息中间件，连接字符串看配置文件

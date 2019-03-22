@@ -31,7 +31,7 @@ namespace AggregateEventTests
                 {
                     op.CurrentServiceName = "AggregateTest";
                     op.TestorProduct = ENUM_SERVICBUS_TESTORPRODUCT.Test;
-                    op.LocaLorDistribution = ENUM_LOCALorDISTRIBUTION.Local;
+                    op.StoragePersistence = ENUM_StoragePersistence.Mysql;
                     op.TransportType = ENUM_TRANSPORT.Rabbitmq;
 
                 });

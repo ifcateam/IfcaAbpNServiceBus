@@ -27,7 +27,15 @@ namespace IFCAnServiceBusMdl.DomainEvent.EventBus
 
         public async Task PublishAsync(Type eventType, object eventData)
         {
-            await _ifcaEndpoint.Publish(eventData);
+            if (eventData is IMessage)
+            {
+                await _ifcaEndpoint.Publish(eventData);
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         public IDisposable Subscribe<TEvent>(Func<TEvent, Task> action) where TEvent : class

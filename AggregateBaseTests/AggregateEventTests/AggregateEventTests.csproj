@@ -10,6 +10,7 @@
     <PackageReference Include="IFCA.Framework.Domain" Version="1.0.0.8" />
     <PackageReference Include="IfcaAbpIocHelper" Version="0.14.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="Shouldly" Version="3.0.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
@@ -17,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\IFCAnServiceBusMdl\IFCAnServiceBusMdl\IFCAnServiceBusMdl.csproj" />
     <ProjectReference Include="..\..\IFCAnServiceBusMdl\NServiceBusTestBase\NServiceBusTestBase.csproj" />
+    <ProjectReference Include="..\..\IFCAnServiceBusMdl\TestDatas\PayForMeterEventData.csproj" />
     <ProjectReference Include="..\UsersEFCoreTest\UsersEFCoreTest.csproj" />
   </ItemGroup>
 

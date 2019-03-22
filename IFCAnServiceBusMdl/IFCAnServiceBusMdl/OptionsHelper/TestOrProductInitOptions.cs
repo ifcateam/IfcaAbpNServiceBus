@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using IFCAnServiceBusMdl.OptionsHelper.StoragePersInitOptions;
 using NServiceBus;
 
 namespace IFCAnServiceBusMdl.OptionsHelper
@@ -16,8 +17,7 @@ namespace IFCAnServiceBusMdl.OptionsHelper
 
         public override void Handle(
             IFCAnServiceBusOptions ifcAnServiceBusOptions)
-        {
-            
+        {            
             #region Persistence
             if (ifcAnServiceBusOptions.TestorProduct ==
                 ENUM_SERVICBUS_TESTORPRODUCT.Test)
@@ -42,10 +42,28 @@ namespace IFCAnServiceBusMdl.OptionsHelper
             if (ifcAnServiceBusOptions.TestorProduct ==
                 ENUM_SERVICBUS_TESTORPRODUCT.Product)
             {
-                SetSucceesorNext(
-                    new LocalOrDistributionInitOptions(_endpointConfiguration));
+                FactoryCreateNextSucceesorStorage(ifcAnServiceBusOptions
+                    .StoragePersistence);
                 _succeesorNext.Handle(ifcAnServiceBusOptions);
             }
+        }
+
+        private void FactoryCreateNextSucceesorStorage(
+            ENUM_StoragePersistence enumStorage)
+        {
+            switch (enumStorage)
+            {
+                case ENUM_StoragePersistence.Mysql:
+                    SetSucceesorNext(
+                        new StoragePersMySqlInitOptions(_endpointConfiguration));
+                    break;
+                case ENUM_StoragePersistence.Sqlserver:
+                    SetSucceesorNext(
+                        new StoragePersMySqlInitOptions(_endpointConfiguration));
+                    break;
+            }
+
+
         }
     }
 }
